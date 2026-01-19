@@ -69,14 +69,15 @@ python experiments/imagenet_experiments.py \
 ```
 
 Example: Standard Baseline
-Bash
-
+```shell
 python experiments/imagenet_experiments.py \
     --optimizer SGD \
     --init_lr 0.1 \
     --schedule cosine \
     --epochs 50 \
     --data_dir /path/to/imagenet_data
+```
+
 ## Repository Structure
 ```text
 noise-curricula-regularization/
