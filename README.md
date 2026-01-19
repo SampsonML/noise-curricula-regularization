@@ -28,8 +28,8 @@ Optimizers Supported:
 
 - SGD (with Nesterov momentum)
 - Adam (AdamW)
-- SD (Sign Descent with momentum)
-- SAM (Sharpness-Aware Minimization)
+- SD (Sign Descent with momentum: nice review https://arxiv.org/abs/1905.12938)
+- SAM (Sharpness-Aware Minimization: https://arxiv.org/abs/2010.01412)
 
 ## Running Experiments
 The experiments/ folder contains scripts for reproducing training runs on CIFAR-100 and ImageNet.
