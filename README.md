@@ -5,8 +5,6 @@ This repository implements research on regularization techniques using dynamic n
 
 ## Installation
 
-## Installation
-
 > [!IMPORTANT]  
 > This repository relies on JAX which is well maintained, but also very fast moving. Please use your favorite environment manager and create a fresh env before running this.
 > [uv](https://docs.astral.sh/uv/#projects) is particularly nice 
@@ -14,8 +12,8 @@ This repository implements research on regularization techniques using dynamic n
 Clone the repository and install dependencies:
 
 ```shell
-git clone https://github.com/SampsonML/DynamicLearningRateLODE.git
-cd DynamicLearningRateLODE
+git clone https://github.com/SampsonML/noise-curricula-regularization.git
+cd noise-curricula-regularization
 pip install -e .
 # or using uv
 uv sync
