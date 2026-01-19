@@ -1,0 +1,74 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "noise-injections"
+version = "0.1.0"
+description = "Noise Injections for regulatization"
+readme = "README.md"
+requires-python = "==3.12.*"
+license = { text = "Apache-2.0" }
+authors = [
+    { name = "Matt L. Sampson", email = "matt.sampson@princeton.edu" }
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    # Core JAX ecosystem
+    "jax>=0.4.13",
+    "jaxlib>=0.4.13",
+    "flax>=0.7.0",
+    "optax>=0.1.5",
+    "diffrax>=0.4.1",
+    "equinox>=0.10.1",
+    
+    # Data Loading & TensorFlow Interop
+    "tensorflow>=2.15.0",         # Required for tf.data pipeline
+    "tensorflow-datasets>=4.9.0", # Required for CIFAR-100/ImageNet loading
+    
+    # Scientific Stack
+    "numpy>=1.21",
+    "scipy>=1.10",
+    "pandas>=2.0",                # Useful for logging/analysis
+    "matplotlib>=3.7",            # Required for plotting results
+    
+    # Utilities
+    "tqdm>=4.66",                 # Progress bars (optional but recommended)
+    "absl-py>=1.4",               # Often required by JAX/TF internal logging
+    "chex>=0.1.7",                # JAX testing/debugging utilities
+    "orbax-checkpoint>=0.5.0",    # Modern JAX checkpointing (good future-proofing)
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+# ------------------------------------------------------------------
+# UV Specific Configurations
+# ------------------------------------------------------------------
+[tool.uv]
+# Resolves dependency conflicts faster
+resolution = "highest" 
+
+[dev-dependencies]
+pytest = ">=7.4"
+pytest-cov = ">=4.1"
+black = ">=24.0"
+ruff = ">=0.1.0"
+ipykernel = ">=6.29"              # For running experiments in notebooks
+
+# ------------------------------------------------------------------
+# Tool Configurations
+# ------------------------------------------------------------------
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+select = ["E", "F", "I"]
+
+[tool.black]
+line-length = 88
+target-version = ['py312']
