@@ -82,16 +82,14 @@ def create_optimizer(
             optax.sgd(learning_rate=learning_rate, momentum=0.9, nesterov=True),
         )
 
-    elif name == "SD":  # Sign Descent
+    elif name == 'SD':
+        # Implementation: Weight Decay -> Momentum Trace -> Sign -> Scale(-LR)
         return optax.chain(
             optax.add_decayed_weights(weight_decay),
             optax.trace(decay=0.9, nesterov=False),
-            lambda updates, state: (jax.tree_map(jnp.sign, updates), state),
-            (
-                optax.scale_by_schedule(lambda step: -learning_rate(step))
-                if callable(learning_rate)
-                else optax.scale(-learning_rate)
-            ),
+            # Wrap the lambda in optax.stateless to provide the necessary .init() method
+            optax.stateless(lambda updates: jax.tree_map(jnp.sign, updates)), 
+            optax.scale(-learning_rate)
         )
 
     elif name == "SAM":
