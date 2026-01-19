@@ -1,5 +1,6 @@
 # Noise Curricula Regularization
-
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg?style=for-the-badge)](https://opensource.org/licenses/Apache-2.0)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg?style=for-the-badge&logo=python&logoColor=white)](https://github.com/psf/black)
 
 This repository implements research on regularization techniques using dynamic noise injection curricula (Curriculum Learning) and compares with optimization strategies such as Sign Descent (SD) and Sharpness-Aware Minimization (SAM). The codebase is built on **JAX/Flax** for model definition and training, with **TensorFlow Datasets (TFDS)** for efficient data pipelines.
 
